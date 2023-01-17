@@ -1,32 +1,33 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher } from "svelte";
   import { getEventValue } from "../utils/logic";
 
-  const dispatch = createEventDispatcher()
+  const dispatch = createEventDispatcher();
 
   function removeItem() {
-    dispatch('removeValue', {index})
+    dispatch("removeValue", { index });
   }
   let showInput = false;
   export let value = "";
-  export let index: number
+  export let index: number;
+  let checked = false;
 </script>
 
 <div>
-  <button on:click={() => (showInput = true)}
-        on:input={(e) => (value = getEventValue(e))}
-        on:blur={() => {
-          if(value==='')showInput=false
-        }}
-  >
-  {value}
-  </button>
+  <input type="checkbox" bind:checked />
+  {#if checked}
+    <p style="text-decoration: line-through">{value}</p>
+  {:else}
+    <p>{value}</p>
+  {/if}
   <button on:click={removeItem}>x</button>
 </div>
 
-
 <style>
   div {
-    margin: 0.3rem
+    display: flex;
+    flex-direction: row;
+    margin: 0.3rem;
+    justify-content: space-around;
   }
 </style>
