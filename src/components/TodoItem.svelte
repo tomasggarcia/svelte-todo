@@ -1,7 +1,6 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte';
   import { getEventValue } from "../utils/logic";
-  import {createEventDispatcher} from 'svelte';
-  import { text } from "svelte/internal";
 
   const dispatch = createEventDispatcher()
 
@@ -10,9 +9,7 @@
   }
   let showInput = false;
   export let value = "";
-  export let index
-
-
+  export let index: number
 </script>
 
 <div>
@@ -26,3 +23,10 @@
   </button>
   <button on:click={removeItem}>x</button>
 </div>
+
+
+<style>
+  div {
+    margin: 0.3rem
+  }
+</style>

@@ -1,7 +1,9 @@
+# Initialize
+
 npm init vite .
 
 
-# change port
+# change vite port
 
 vite.config.ts :
 ```
@@ -76,3 +78,5 @@ $: total = yPlusAValue(x);
 # Reactivity 
 
 https://svelte.dev/tutorial/updating-arrays-and-objects
+
+# Slots
