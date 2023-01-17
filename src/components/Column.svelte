@@ -1,10 +1,10 @@
 <script>
-  import { each } from "svelte/internal";
-  import TodoItem from "./TodoItem.svelte";
+  import AddItem from "./AddItem.svelte";
+import TodoItem from "./TodoItem.svelte";
 
   let items = [""]
+  let addClicked = false
 
-  $: console.log(items)
 </script>
 <table>
   <tr>
@@ -14,6 +14,6 @@
     {#each items as item}
     <TodoItem value={item}/>
     {/each}
-
+    <AddItem bind:clicked={addClicked}></AddItem>
   </tr>
 </table>
