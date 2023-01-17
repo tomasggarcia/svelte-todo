@@ -71,3 +71,8 @@ function yPlusAValue(value) {
 $: total = yPlusAValue(x);
 ```
 
+
+
+# Reactivity 
+
+https://svelte.dev/tutorial/updating-arrays-and-objects

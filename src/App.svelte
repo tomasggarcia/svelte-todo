@@ -6,19 +6,28 @@
   let items = ["primer"];
 
   function addItem(event) {
-    console.log(event.detail.text)
     items = [...items, event.detail.text]
   }
-  $: console.log(items)
+  function removeItem(event) {
+    // items = items.splice(event.detail.index, 1)
+    items = items.filter((e,i) => i!=event.detail.index)
+  }
 </script>
 
 <main>
   <button on:click={() => showAddModal=true}> New... </button>
-  {#each items as item}
-    <TodoItem value={item}/>
+  {#each items as item, i}
+    <TodoItem 
+    value={item}
+    index={i}
+    on:removeValue={removeItem}
+    />
   {/each}
   {#if showAddModal}
-  <AddModal bind:showModal={showAddModal} on:addValue={addItem}></AddModal>
+  <AddModal 
+  bind:showModal={showAddModal} 
+  on:addValue={addItem}
+  />
   {/if}
 </main>
 
