@@ -6,17 +6,12 @@
 </script>
 
 <div>
-  <button on:click={() => (showInput = true)}>
-    {#if showInput}
-      <input
+  <button on:click={() => (showInput = true)}
         on:input={(e) => (value = getEventValue(e))}
         on:blur={() => {
           if(value==='')showInput=false
         }}
-        type="text"
-      />
-    {:else}
-      New...
-    {/if}
+  >
+  {value}
   </button>
 </div>
